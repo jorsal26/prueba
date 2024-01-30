@@ -1,0 +1,134 @@
+
+/*El * es para sacar propiedades del proyecto*/
+*{
+   margin: 0;
+   padding: 0; 
+}
+
+/* Media Querys | Nos permiten decir como se aplican los estilos segun ciertas reglas*/
+/* Sintaxis */
+/* Mobile */
+@media only screen and (max-width: 480px){
+    /* Aca dentro escribimos css comun */
+    body{
+        background-color: #f09a9d;
+    }
+
+    h1{
+        font-size: 22px;
+        color: black;
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 481px) and (max-width: 980px){
+    /* Aca dentro escribimos css comun */
+    body{
+        background-color: #f5cf8e;
+    }
+}
+
+/* Descktop */
+@media only screen and (min-width: 981px){
+    /* Aca dentro escribimos css comun */
+    body{
+        background-color: #b2d6ff;
+    }
+}
+
+/*El root es para agregar propiedades del proyecto*/
+/*Pseudoclase | Simula ser un elemento existente de HTML pero no existe en realidad | Root selecciona el elemento raiz que representa al HTML, es como si seleccionara en CSS a la etiqueta HTML, es decir que lo que voy a hacer en root, va a afectar a todo el proyecto*/
+
+:root{
+    /* root me permite declarar variables en CSS | una variable es como un balde donde le podemos poner agua o poner cualquier otra cosa dentro*/
+    --encabezados: 44px;
+    --brand-color: yellow;
+    --font-secundaria: 'Nunito';
+
+    /*Una buena practica es declarar en el root, fuentes, colores, estructuras, etc. del proyecto*/
+}
+
+h1{
+    font-size: var(--encabezados);
+    color: var(--brand-color)
+}
+
+footer{
+    font-family: var(--font-secundaria);
+}
+
+
+/* Para convertir y habilitar los poderes de GRID tengo que activar grid en el contenedor general */
+.grid-container{
+    display: grid;
+
+    /*Definir cuantas filas tiene esta grilla, mas alla de la cantidad de elementos el en html*/
+    grid-template-rows: 150px 150px 150px 150px; /*con unidades de medida degino la cantidad*/
+    border: 3px solid black;
+
+    /*Definir las columnas + unidades de medida*/
+    /* grid-template-columns: 150px 150px 150px 150px; */
+
+    /*GRID introduce una nueva unidad de medida es que es la fraccion, que es una unidad de medida relativa*/
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+
+    /*la funcion repeat ayuda al momento de definir los valores de las celdas*/
+    grid-template-columns: repeat(3,1fr);
+
+    /*GRID nos da una especie de margin entre celdas*/
+    /*  gap es para separar entre filas y columnas
+        row-gap para separar entre filas
+        column-gap para separar entre columnas
+    */
+    gap: 10px;
+
+    /* Dentro del conteneror general puedo declarar areas que nos permiten darle un nombre de cada uno de los elementos y junto con ese nombre definir cuanto espacio de columnas y filas ocupa, repitiendo el nombre del area */
+
+    grid-template-areas:
+    'header header header'
+    'productos productos banner'
+    'productos productos banner'
+    'footer footer footer'
+}
+
+.grid-item{
+    border: 2px solid rgb(11, 65, 180);
+}
+
+.first-item{
+    /*quiero que empiece y termine una celda*/
+    grid-column: 1 / 3; /*los numeros son linea de la grilla | la barra separa el valor inicial del valor final. Es la version resumida de las siguientes propiedades:
+    grid-column-start: 1;
+    grid-column-end: 3;
+    */
+    grid-row: 1 / 4;
+}
+
+.medium-item{
+    /*quiero que empiece y termine una celda*/
+    grid-column: 4 / 3; /*los numeros son linea de la grilla | la barra separa el valor inicial del valor final. Es la version resumida de las siguientes propiedades:
+    grid-column-start: 1;
+    grid-column-end: 3;
+    */
+    grid-row: 1 / 4;
+}
+
+.cabecera {
+    grid-area: header;
+    border: 1px solid black;
+}
+.item {
+    grid-area: productos;
+    border: 1px solid black;
+}
+.publicidad {
+    grid-area: banner;
+    border: 1px solid black;
+}
+.pie {
+    grid-area: footer;
+    border: 1px solid black;
+}
+
+
+

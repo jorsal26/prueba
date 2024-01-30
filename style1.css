@@ -1,0 +1,74 @@
+#grilla{
+    display: grid;
+    grid-template-rows: 80px 1fr 1fr 60px;
+    grid-template-columns: 20% auto 15%;
+
+    grid-template-areas:
+    'header header header'
+    'productos productos publicidad'
+    'servicios servicios publicidad'
+    'footer footer footer'
+}
+
+.header{
+    grid-area: header;
+    background-color: #b2d6ff;
+    border: 2px solid rgb(11, 65, 180);
+}
+
+.productos{
+    grid-area: productos;
+    background-color: #b2d6ff;
+    border: 2px solid rgb(11, 65, 180);
+}
+
+.servicios{
+    grid-area: servicios;
+    background-color: #b2d6ff;
+    border: 2px solid rgb(11, 65, 180);
+}
+
+.aside{
+    grid-area: publicidad;
+    background-color: #b2d6ff;
+    border: 2px solid rgb(11, 65, 180);
+}
+
+.footer{
+    grid-area: footer;
+    background-color: #b2d6ff;
+    border: 2px solid rgb(11, 65, 180);
+}
+
+
+/* Descktop */
+@media only screen and (min-width: 768px){
+    /* Aca dentro escribimos css comun */
+    #grilla{
+        grid-template-rows: 100px 1fr 1fr 1fr 60px;
+        grid-template-columns: repeat(4, 1fr);
+
+        grid-template-areas:
+        'header header header header'
+        'productos productos productos productos'
+        'servicios servicios publicidad publicidad'
+        'footer footer footer footer'
+    }
+
+    h1{
+        display: none;
+    }
+
+    #grilla-mobile{
+        display: none;
+    }
+}
+
+/* media query customizamos estructuras y no solo cambios visuales*/
+/* display none y el htms para cada pantalla */
+
+@media only screen and (max-width: 480px){
+    #grilla{
+        display: none;
+    }
+}
